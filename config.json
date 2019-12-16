@@ -1,0 +1,42 @@
+{
+    "model_algorithm": "yolov3-spp",
+    "model_type": "PyTorch",
+    "runtime": "python3.6",
+    "apis": [
+        {
+            "procotol": "http",
+            "url": "/",
+            "method": "post",
+            "request": {
+                "Content-type": "multipart/form-data",
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "images": {
+                            "type": "file"
+                        }
+                    }
+                }
+            },
+            "response": {
+                "Content-type": "applicaton/json",
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "mnist_result": {
+                            "type": "array",
+                            "item": [
+                                {
+                                    "type": "json"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "metrics": {
+        "mAP": "60"
+    }
+}
